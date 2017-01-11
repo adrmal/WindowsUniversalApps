@@ -24,10 +24,10 @@ namespace ProjectApp
     {
         public MainPage()
         {
-            this.InitializeComponent();
+            InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void About_Click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(About));
         }

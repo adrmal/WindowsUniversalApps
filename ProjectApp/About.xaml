@@ -7,20 +7,28 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Page.TopAppBar>
-        <CommandBar>
-            <AppBarButton Icon="OutlineStar" Label="appbarbutton" x:Uid="FavouriteTitle" Click="FavouriteIconClick" Name="FavouriteIcon" />
-        </CommandBar>
-    </Page.TopAppBar>
-    
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <StackPanel>
-            <TextBlock>Autor: </TextBlock>
-            <TextBlock>Adrian Małolepszy</TextBlock>
-            <TextBlock>Witryna: </TextBlock>
-            <TextBlock>adrmal.github.com</TextBlock>
-            <TextBlock>E-mail: </TextBlock>
-            <TextBlock>adr_mal@wp.pl</TextBlock>
+        <StackPanel Padding="20,0,20,20">
+            <TextBlock Margin="0,0,0,30" Style="{StaticResource HeaderTextBlockStyle}">O aplikacji</TextBlock>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="45" />
+                    <RowDefinition Height="45" />
+                    <RowDefinition Height="45" />
+                </Grid.RowDefinitions>
+                
+                <TextBlock Grid.Column="0" Grid.Row="0">Autor</TextBlock>
+                <TextBlock Grid.Column="1" Grid.Row="0">Adrian Małolepszy</TextBlock>
+                <TextBlock Grid.Column="0" Grid.Row="1">Witryna</TextBlock>
+                <TextBlock Grid.Column="1" Grid.Row="1">adrmal.github.com</TextBlock>
+                <TextBlock Grid.Column="0" Grid.Row="2">E-mail</TextBlock>
+                <TextBlock Grid.Column="1" Grid.Row="2">adr_mal@wp.pl</TextBlock>
+            </Grid>
+            <Button Click="ContactWithMe_Click"  Content="Skontaktuj się ze mną" Margin="0,15,0,0" />
         </StackPanel>
     </Grid>
 </Page>
