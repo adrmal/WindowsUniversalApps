@@ -1,0 +1,34 @@
+﻿<Page
+    x:Class="ProjectApp.About"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ProjectApp"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <StackPanel Padding="20,0,20,20">
+            <TextBlock Margin="0,0,0,30" Style="{StaticResource HeaderTextBlockStyle}">O aplikacji</TextBlock>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="45" />
+                    <RowDefinition Height="45" />
+                    <RowDefinition Height="45" />
+                </Grid.RowDefinitions>
+                
+                <TextBlock Grid.Column="0" Grid.Row="0">Autor</TextBlock>
+                <TextBlock Grid.Column="1" Grid.Row="0">Adrian Małolepszy</TextBlock>
+                <TextBlock Grid.Column="0" Grid.Row="1">Witryna</TextBlock>
+                <TextBlock Grid.Column="1" Grid.Row="1">adrmal.github.com</TextBlock>
+                <TextBlock Grid.Column="0" Grid.Row="2">E-mail</TextBlock>
+                <TextBlock Grid.Column="1" Grid.Row="2">adr_mal@wp.pl</TextBlock>
+            </Grid>
+            <Button Click="ContactWithMe_Click"  Content="Skontaktuj się ze mną" Margin="0,15,0,0" />
+        </StackPanel>
+    </Grid>
+</Page>
