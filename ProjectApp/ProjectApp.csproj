@@ -95,6 +95,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="rest\Contact.cs" />
+    <Compile Include="rest\RestAPI.cs" />
+    <Compile Include="rest\RestAPIConverter.cs" />
     <Compile Include="view\About.xaml.cs">
       <DependentUpon>About.xaml</DependentUpon>
     </Compile>
