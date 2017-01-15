@@ -1,16 +1,16 @@
 ﻿<Page
-    x:Class="ProjectApp.NewTask"
+    x:Class="ProjectApp.view.EditNote"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:ProjectApp"
+    xmlns:local="using:ProjectApp.view"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <ScrollViewer>
+    <ScrollViewer ScrollViewer.VerticalScrollBarVisibility="Auto">
         <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
             <StackPanel Padding="20,0,20,20">
-                <TextBlock Margin="0,0,0,30" Style="{StaticResource HeaderTextBlockStyle}">Nowa notatka</TextBlock>
+                <TextBlock Margin="0,0,0,30" Style="{StaticResource HeaderTextBlockStyle}">Edycja notatki</TextBlock>
                 <TextBlock Margin="0,0,0,5">Tytuł</TextBlock>
                 <TextBox Margin="0,0,0,30" AcceptsReturn="True" MaxLength="100" TextWrapping="Wrap" />
                 <TextBlock Margin="0,0,0,5">Opis</TextBlock>
@@ -19,7 +19,7 @@
                 <DatePicker Margin="0,0,0,30" />
                 <TextBlock Margin="0,0,0,5">Godzina zakończenia</TextBlock>
                 <TimePicker Margin="0,0,0,30" />
-                <Button>Zapisz notatkę</Button>
+                <Button Click="EditNote_Click">Zapisz notatkę</Button>
             </StackPanel>
         </Grid>
     </ScrollViewer>

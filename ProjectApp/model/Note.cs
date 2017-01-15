@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace ProjectApp.model
 {
-    class Task
+    class Note
     {
         public string Id { get; }
         public string Title { get; set; }
         public string Description { get; set; }
         public DateTime Date { get; set; }
 
-        public Task(string title, string description, DateTime date)
+        public Note(string title, string description, DateTime date)
         {
             Id = Guid.NewGuid().ToString();
             Title = title;

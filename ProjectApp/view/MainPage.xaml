@@ -17,13 +17,23 @@
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <ListView x:Name="TasksListView">
             <ListView.ItemTemplate>
-                <DataTemplate>
+                <DataTemplate x:DataType="x:String">
                     <StackPanel>
-                        <TextBlock></TextBlock>
+                        <TextBlock Text="{x:Bind}"></TextBlock>
                         <TextBlock></TextBlock>
                     </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
+            <x:String>adssad</x:String>
+            <x:String>adssad2</x:String>
+            <x:String>adssad3</x:String>
+            <x:String>adssad4</x:String>
+            <x:String>adssad5</x:String>
+            <x:String>adssad6</x:String>
+            <x:String>adssad7</x:String>
+            <x:String>adssad8</x:String>
+            <x:String>adssad9</x:String>
+            <x:String>adssad10</x:String>
         </ListView>
     </Grid>
 </Page>

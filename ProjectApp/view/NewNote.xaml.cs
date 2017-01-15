@@ -15,21 +15,16 @@ using Windows.UI.Xaml.Navigation;
 
 namespace ProjectApp
 {
-    public sealed partial class MainPage : Page
+    public sealed partial class NewNote : Page
     {
-        public MainPage()
+        public NewNote()
         {
             InitializeComponent();
         }
 
-        private void About_Click(object sender, RoutedEventArgs e)
+        private void NewNote_Click(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(About));
-        }
-
-        private void NewTask_Click(object sender, RoutedEventArgs e)
-        {
-            Frame.Navigate(typeof(NewNote));
+            Frame.Navigate(typeof(MainPage));
         }
     }
 }

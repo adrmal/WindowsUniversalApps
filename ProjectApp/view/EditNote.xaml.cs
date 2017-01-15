@@ -13,13 +13,18 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-namespace ProjectApp
+namespace ProjectApp.view
 {
-    public sealed partial class NewTask : Page
+    public sealed partial class EditNote : Page
     {
-        public NewTask()
+        public EditNote()
         {
             InitializeComponent();
+        }
+
+        private void EditNote_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(MainPage));
         }
     }
 }
