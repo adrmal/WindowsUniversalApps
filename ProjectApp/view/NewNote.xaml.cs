@@ -1,17 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
+﻿using ProjectApp.model;
+using ProjectApp.rest;
+using System;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
 
 namespace ProjectApp
 {
@@ -22,9 +14,27 @@ namespace ProjectApp
             InitializeComponent();
         }
 
-        private void NewNote_Click(object sender, RoutedEventArgs e)
+        private async void NewNote_Click(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(MainPage));
+            if(Title.Text == "")
+            {
+                await new MessageDialog("Tytuł notatki jest pusty.").ShowAsync();
+            }
+            else if(Description.Text == "")
+            {
+                await new MessageDialog("Opis notatki jest pusty.").ShowAsync();
+            }
+            else if(!Date.Date.HasValue)
+            {
+                await new MessageDialog("Dzień zakończenia notatki nie został ustawiony.").ShowAsync();
+            }
+            else
+            {
+                DateTime date = new DateTime(Date.Date.Value.DateTime.Year, Date.Date.Value.DateTime.Month, Date.Date.Value.DateTime.Day, Time.Time.Hours, Time.Time.Minutes, 0);
+
+                //RestAPI.PostNote(new Note(Title.Text, Description.Text, date));
+                Frame.Navigate(typeof(MainPage));
+            }
         }
     }
 }

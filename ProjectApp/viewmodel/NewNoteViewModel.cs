@@ -6,8 +6,11 @@ using System.Threading.Tasks;
 
 namespace ProjectApp.viewmodel
 {
-    class NewNoteViewModel : ViewModel
+    public class NewNoteViewModel : ViewModel
     {
-
+        public string Id { get; }
+        public string Title { get; set; }
+        public string Description { get; set; }
+        public DateTime Date { get; set; }
     }
 }

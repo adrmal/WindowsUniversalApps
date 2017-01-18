@@ -12,13 +12,13 @@
             <StackPanel Padding="20,0,20,20">
                 <TextBlock Margin="0,0,0,30" Style="{StaticResource HeaderTextBlockStyle}">Nowa notatka</TextBlock>
                 <TextBlock Margin="0,0,0,5">Tytuł</TextBlock>
-                <TextBox Margin="0,0,0,30" AcceptsReturn="True" MaxLength="100" TextWrapping="Wrap" />
+                <TextBox x:Name="Title" Margin="0,0,0,30" AcceptsReturn="True" MaxLength="100" TextWrapping="Wrap" />
                 <TextBlock Margin="0,0,0,5">Opis</TextBlock>
-                <TextBox Margin="0,0,0,30" AcceptsReturn="True" MaxLength="300" TextWrapping="Wrap" />
+                <TextBox x:Name="Description" Margin="0,0,0,30" AcceptsReturn="True" MaxLength="300" TextWrapping="Wrap" />
                 <TextBlock Margin="0,0,0,5">Dzień zakończenia</TextBlock>
-                <DatePicker Margin="0,0,0,30" />
+                <CalendarDatePicker x:Name="Date" Margin="0,0,0,30" />
                 <TextBlock Margin="0,0,0,5">Godzina zakończenia</TextBlock>
-                <TimePicker Margin="0,0,0,30" />
+                <TimePicker x:Name="Time" Margin="0,0,0,30" />
                 <Button Click="NewNote_Click">Zapisz notatkę</Button>
             </StackPanel>
         </Grid>
