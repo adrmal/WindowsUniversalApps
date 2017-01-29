@@ -32,7 +32,7 @@ namespace ProjectApp
             {
                 DateTime date = new DateTime(Date.Date.Value.DateTime.Year, Date.Date.Value.DateTime.Month, Date.Date.Value.DateTime.Day, Time.Time.Hours, Time.Time.Minutes, 0);
 
-                //RestAPI.PostNote(new Note(Title.Text, Description.Text, date));
+                await RestAPI.PostNote(new Note(Title.Text, Description.Text, date));
                 Frame.Navigate(typeof(MainPage));
             }
         }

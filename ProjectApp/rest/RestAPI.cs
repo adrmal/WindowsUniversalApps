@@ -2,7 +2,6 @@
 using ProjectApp.model;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,6 +14,7 @@ namespace ProjectApp.rest
 
         public static async Task<Note> GetNote(string noteId)
         {
+            // TODO
             using (HttpClient client = new HttpClient())
             {
                 string json = await client.GetStringAsync(uri + noteId);
@@ -28,23 +28,21 @@ namespace ProjectApp.rest
         {
             using (HttpClient client = new HttpClient())
             {
-                string json = await client.GetStringAsync(uri);
+                HttpResponseMessage response = await client.GetAsync(uri);
+                string json = await response.Content.ReadAsStringAsync();
                 List<Contact> contacts = JsonConvert.DeserializeObject<List<Contact>>(json);
-                List<Note> notes = RestAPIConverter.convertToNotesList(contacts);
-                return notes;
+                return RestAPIConverter.convertToNotesList(contacts);
             }
         }
 
-        public static async void PostNote(Note note)
+        public static async Task PostNote(Note note)
         {
             using (HttpClient client = new HttpClient())
             {
-                // TODO
-                string json = await client.GetStringAsync(uri + note.Id);
                 Contact contact = RestAPIConverter.convertFromNote(note);
-                note = RestAPIConverter.convertToNote(contact);
-                List<Note> obj = JsonConvert.DeserializeObject<List<Note>>(json);
+                string json = JsonConvert.SerializeObject(contact);
 
+                await client.PostAsync(uri, new StringContent(json, Encoding.UTF8, "application/json"));
             }
         }
 

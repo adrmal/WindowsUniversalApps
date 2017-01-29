@@ -1,8 +1,6 @@
 ﻿using ProjectApp.model;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace ProjectApp.rest
 {
@@ -10,7 +8,18 @@ namespace ProjectApp.rest
     {
         public static Note convertToNote(Contact contact)
         {
-            return null;
+            string noteId = contact.EmailAddress;
+            string noteDateString = contact.Name.Split(new string[] { "\\\\\\\\\\" }, StringSplitOptions.None)[0];
+            string noteTitle = contact.Name.Split(new string[] { "\\\\\\\\\\" }, StringSplitOptions.None)[1];
+            string noteDescription = contact.Name.Split(new string[] { "\\\\\\\\\\" }, StringSplitOptions.None)[2];
+            int[] noteDate = new int[5];
+            for(int i=0; i<5; i++)
+            {
+                noteDate[i] = int.Parse(noteDateString.Split('.')[i]);
+            }
+
+            Note note = new Note(noteId, noteTitle, noteDescription, new DateTime(noteDate[0], noteDate[1], noteDate[2], noteDate[3], noteDate[4], 0));
+            return note;
         }
 
         public static List<Note> convertToNotesList(List<Contact> contacts)
@@ -25,7 +34,14 @@ namespace ProjectApp.rest
 
         public static Contact convertFromNote(Note note)
         {
-            return null;
+            Contact contact = new Contact();
+            contact.Id = 0;
+            contact.EmailAddress = note.Id;
+            contact.Name =
+                note.Date.Year + "." + note.Date.Month + "." + note.Date.Day + "." + note.Date.Hour + "." + note.Date.Minute
+                + "\\\\\\\\\\" + note.Title
+                + "\\\\\\\\\\" + note.Description;
+            return contact;
         }
 
         public static List<Contact> convertFromNotesList(List<Note> notes)

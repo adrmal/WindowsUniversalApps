@@ -15,25 +15,15 @@
     </Page.BottomAppBar>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <ListView x:Name="TasksListView">
+        <ListView x:Name="TasksListView" ItemsSource="{Binding NoteList}">
             <ListView.ItemTemplate>
-                <DataTemplate x:DataType="x:String">
+                <DataTemplate>
                     <StackPanel>
-                        <TextBlock Text="{x:Bind}"></TextBlock>
-                        <TextBlock></TextBlock>
+                        <TextBlock Text="{Binding Title}"></TextBlock>
+                        <TextBlock Text="{Binding Description}"></TextBlock>
                     </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
-            <x:String>adssad</x:String>
-            <x:String>adssad2</x:String>
-            <x:String>adssad3</x:String>
-            <x:String>adssad4</x:String>
-            <x:String>adssad5</x:String>
-            <x:String>adssad6</x:String>
-            <x:String>adssad7</x:String>
-            <x:String>adssad8</x:String>
-            <x:String>adssad9</x:String>
-            <x:String>adssad10</x:String>
         </ListView>
     </Grid>
 </Page>
