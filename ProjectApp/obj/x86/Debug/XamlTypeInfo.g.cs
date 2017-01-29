@@ -132,21 +132,23 @@ namespace ProjectApp.ProjectApp_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[6];
+            _typeNameTable = new string[7];
             _typeNameTable[0] = "ProjectApp.About";
             _typeNameTable[1] = "Windows.UI.Xaml.Controls.Page";
             _typeNameTable[2] = "Windows.UI.Xaml.Controls.UserControl";
             _typeNameTable[3] = "ProjectApp.view.EditNote";
             _typeNameTable[4] = "ProjectApp.MainPage";
             _typeNameTable[5] = "ProjectApp.NewNote";
+            _typeNameTable[6] = "ProjectApp.view.NoteDetails";
 
-            _typeTable = new global::System.Type[6];
+            _typeTable = new global::System.Type[7];
             _typeTable[0] = typeof(global::ProjectApp.About);
             _typeTable[1] = typeof(global::Windows.UI.Xaml.Controls.Page);
             _typeTable[2] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
             _typeTable[3] = typeof(global::ProjectApp.view.EditNote);
             _typeTable[4] = typeof(global::ProjectApp.MainPage);
             _typeTable[5] = typeof(global::ProjectApp.NewNote);
+            _typeTable[6] = typeof(global::ProjectApp.view.NoteDetails);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -185,6 +187,7 @@ namespace ProjectApp.ProjectApp_XamlTypeInfo
         private object Activate_3_EditNote() { return new global::ProjectApp.view.EditNote(); }
         private object Activate_4_MainPage() { return new global::ProjectApp.MainPage(); }
         private object Activate_5_NewNote() { return new global::ProjectApp.NewNote(); }
+        private object Activate_6_NoteDetails() { return new global::ProjectApp.view.NoteDetails(); }
 
         private global::Windows.UI.Xaml.Markup.IXamlType CreateXamlType(int typeIndex)
         {
@@ -228,6 +231,13 @@ namespace ProjectApp.ProjectApp_XamlTypeInfo
             case 5:   //  ProjectApp.NewNote
                 userType = new global::ProjectApp.ProjectApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
                 userType.Activator = Activate_5_NewNote;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 6:   //  ProjectApp.view.NoteDetails
+                userType = new global::ProjectApp.ProjectApp_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_6_NoteDetails;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;

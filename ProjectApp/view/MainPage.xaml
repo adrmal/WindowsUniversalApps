@@ -10,12 +10,12 @@
     <Page.BottomAppBar>
         <CommandBar>
             <AppBarButton Icon="ContactInfo" Label="O aplikacji" Click="About_Click" Name="AboutIcon" />
-            <AppBarButton Icon="Add" Label="Nowa notatka" Click="NewTask_Click" Name="NewTaskIcon" />
+            <AppBarButton Icon="Add" Label="Nowa notatka" Click="NewNote_Click" Name="NewNoteIcon" />
         </CommandBar>
     </Page.BottomAppBar>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <ListView x:Name="TasksListView" ItemsSource="{Binding NoteList}">
+        <ListView x:Name="NoteListView" ItemsSource="{Binding NoteList}" IsItemClickEnabled="True" SelectionMode="None" ItemClick="Note_ItemClick">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>

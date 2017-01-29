@@ -1,8 +1,8 @@
 ﻿using ProjectApp.model;
 using ProjectApp.rest;
+using ProjectApp.view;
 using ProjectApp.viewmodel;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
@@ -15,12 +15,13 @@ namespace ProjectApp
             InitializeComponent();
 
             DataContext = new NoteListViewModel();
-            (DataContext as NoteListViewModel).NoteList = GetNotes().Result;
+            LoadNotes();
         }
 
-        private async Task<List<Note>> GetNotes()
+        private async void LoadNotes()
         {
-            return await RestAPI.GetAllNotes();
+            List<Note> notes = await RestAPI.GetAllNotes();
+            (DataContext as NoteListViewModel).NoteList = notes;
         } 
 
         private void About_Click(object sender, RoutedEventArgs e)
@@ -28,9 +29,15 @@ namespace ProjectApp
             Frame.Navigate(typeof(About));
         }
 
-        private void NewTask_Click(object sender, RoutedEventArgs e)
+        private void NewNote_Click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(NewNote));
+        }
+
+        private void Note_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Note item = (Note) e.ClickedItem;
+            Frame.Navigate(typeof(NoteDetails));
         }
     }
 }

@@ -17,17 +17,17 @@
                         <ColumnDefinition Width="1*"/>
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="45" />
-                        <RowDefinition Height="45" />
-                        <RowDefinition Height="45" />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
                     </Grid.RowDefinitions>
 
                     <TextBlock Grid.Column="0" Grid.Row="0">Autor</TextBlock>
-                    <TextBlock Grid.Column="1" Grid.Row="0">Adrian Małolepszy</TextBlock>
+                    <TextBlock Grid.Column="1" Grid.Row="0" Margin="0,0,0,20">Adrian Małolepszy</TextBlock>
                     <TextBlock Grid.Column="0" Grid.Row="1">Witryna</TextBlock>
-                    <TextBlock Grid.Column="1" Grid.Row="1">adrmal.github.com</TextBlock>
+                    <TextBlock Grid.Column="1" Grid.Row="1" Margin="0,0,0,20">adrmal.github.com</TextBlock>
                     <TextBlock Grid.Column="0" Grid.Row="2">E-mail</TextBlock>
-                    <TextBlock Grid.Column="1" Grid.Row="2">adr_mal@wp.pl</TextBlock>
+                    <TextBlock Grid.Column="1" Grid.Row="2" Margin="0,0,0,20">adr_mal@wp.pl</TextBlock>
                 </Grid>
                 <Button Click="ContactWithMe_Click" Margin="0,15,0,0">Skontaktuj się ze mną</Button>
             </StackPanel>
