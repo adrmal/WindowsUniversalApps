@@ -7,6 +7,12 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
+    <Page.BottomAppBar>
+        <CommandBar>
+            <AppBarButton Icon="Edit" Label="Edytuj notatkę" Click="Edit_Click" Name="EditIcon" />
+        </CommandBar>
+    </Page.BottomAppBar>
+
     <ScrollViewer ScrollViewer.VerticalScrollBarVisibility="Auto">
         <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
             <StackPanel Padding="20,0,20,20">
@@ -23,14 +29,14 @@
                         <RowDefinition />
                     </Grid.RowDefinitions>
 
-                    <TextBlock Grid.Column="0" Grid.Row="0">Tytuł</TextBlock>
-                    <TextBlock Grid.Column="1" Grid.Row="0" Margin="0,0,0,20" TextWrapping="Wrap">---</TextBlock>
-                    <TextBlock Grid.Column="0" Grid.Row="1">Opis</TextBlock>
-                    <TextBlock Grid.Column="1" Grid.Row="1" Margin="0,0,0,20" TextWrapping="Wrap">---</TextBlock>
-                    <TextBlock Grid.Column="0" Grid.Row="2">Dzień zakończenia</TextBlock>
-                    <TextBlock Grid.Column="1" Grid.Row="2" Margin="0,0,0,20" TextWrapping="Wrap">---</TextBlock>
-                    <TextBlock Grid.Column="0" Grid.Row="3">Godzina zakończenia</TextBlock>
-                    <TextBlock Grid.Column="1" Grid.Row="3" TextWrapping="Wrap">---</TextBlock>
+                    <TextBlock Grid.Column="0" Grid.Row="0" FontWeight="Bold">Tytuł</TextBlock>
+                    <TextBlock Grid.Column="1" Grid.Row="0" Margin="0,0,0,20" TextWrapping="Wrap" Text="{Binding Title}"></TextBlock>
+                    <TextBlock Grid.Column="0" Grid.Row="1" FontWeight="Bold">Opis</TextBlock>
+                    <TextBlock Grid.Column="1" Grid.Row="1" Margin="0,0,0,20" TextWrapping="Wrap" Text="{Binding Description}"></TextBlock>
+                    <TextBlock Grid.Column="0" Grid.Row="2" FontWeight="Bold">Dzień zakończenia</TextBlock>
+                    <TextBlock Grid.Column="1" Grid.Row="2" Margin="0,0,0,20" TextWrapping="Wrap" Text="{Binding Date}"></TextBlock>
+                    <TextBlock Grid.Column="0" Grid.Row="3" FontWeight="Bold">Godzina zakończenia</TextBlock>
+                    <TextBlock Grid.Column="1" Grid.Row="3" TextWrapping="Wrap" Text="{Binding Date}"></TextBlock>
                 </Grid>
             </StackPanel>
         </Grid>

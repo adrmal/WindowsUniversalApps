@@ -11,14 +11,14 @@
         <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
             <StackPanel Padding="20,0,20,20">
                 <TextBlock Margin="0,0,0,30" Style="{StaticResource HeaderTextBlockStyle}">Edycja notatki</TextBlock>
-                <TextBlock Margin="0,0,0,5">Tytuł</TextBlock>
-                <TextBox Margin="0,0,0,30" AcceptsReturn="True" MaxLength="100" TextWrapping="Wrap" />
-                <TextBlock Margin="0,0,0,5">Opis</TextBlock>
-                <TextBox Margin="0,0,0,30" AcceptsReturn="True" MaxLength="300" TextWrapping="Wrap" />
-                <TextBlock Margin="0,0,0,5">Dzień zakończenia</TextBlock>
-                <DatePicker Margin="0,0,0,30" />
-                <TextBlock Margin="0,0,0,5">Godzina zakończenia</TextBlock>
-                <TimePicker Margin="0,0,0,30" />
+                <TextBlock Margin="0,0,0,5" FontWeight="Bold">Tytuł</TextBlock>
+                <TextBox x:Name="Title" Margin="0,0,0,30" AcceptsReturn="True" MaxLength="100" TextWrapping="Wrap" Text="{Binding Title}" />
+                <TextBlock Margin="0,0,0,5" FontWeight="Bold">Opis</TextBlock>
+                <TextBox x:Name="Description" Margin="0,0,0,30" AcceptsReturn="True" MaxLength="300" TextWrapping="Wrap" Text="{Binding Description}" />
+                <TextBlock Margin="0,0,0,5" FontWeight="Bold">Dzień zakończenia</TextBlock>
+                <CalendarDatePicker x:Name="Date" Margin="0,0,0,30" />
+                <TextBlock Margin="0,0,0,5" FontWeight="Bold">Godzina zakończenia</TextBlock>
+                <TimePicker x:Name="Time" Margin="0,0,0,30" />
                 <Button Click="EditNote_Click">Zapisz notatkę</Button>
             </StackPanel>
         </Grid>

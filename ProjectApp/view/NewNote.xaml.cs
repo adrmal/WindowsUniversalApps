@@ -1,6 +1,7 @@
 ﻿using ProjectApp.model;
 using ProjectApp.rest;
 using System;
+using System.Net;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -32,8 +33,15 @@ namespace ProjectApp
             {
                 DateTime date = new DateTime(Date.Date.Value.DateTime.Year, Date.Date.Value.DateTime.Month, Date.Date.Value.DateTime.Day, Time.Time.Hours, Time.Time.Minutes, 0);
 
-                await RestAPI.PostNote(new Note(Title.Text, Description.Text, date));
-                Frame.Navigate(typeof(MainPage));
+                try
+                {
+                    await RestAPI.PostNote(new Note(Title.Text, Description.Text, date));
+                    Frame.Navigate(typeof(MainPage));
+                }
+                catch(WebException)
+                {
+                    await new MessageDialog("Brak połączenia z Internetem").ShowAsync();
+                }
             }
         }
     }

@@ -37,7 +37,7 @@ namespace ProjectApp
         private void Note_ItemClick(object sender, ItemClickEventArgs e)
         {
             Note item = (Note) e.ClickedItem;
-            Frame.Navigate(typeof(NoteDetails));
+            Frame.Navigate(typeof(NoteDetails), item);
         }
     }
 }
