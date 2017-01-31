@@ -8,10 +8,10 @@ namespace ProjectApp.rest
     {
         public static Note convertToNote(Contact contact)
         {
-            string noteId = contact.EmailAddress;
-            string noteDateString = contact.Name.Split(new string[] { "\\\\\\\\\\" }, StringSplitOptions.None)[0];
-            string noteTitle = contact.Name.Split(new string[] { "\\\\\\\\\\" }, StringSplitOptions.None)[1];
-            string noteDescription = contact.Name.Split(new string[] { "\\\\\\\\\\" }, StringSplitOptions.None)[2];
+            int noteId = contact.Id;
+            string noteDateString = contact.EmailAddress;
+            string noteTitle = contact.Name.Split(new string[] { "\\\\\\\\\\" }, StringSplitOptions.None)[0];
+            string noteDescription = contact.Name.Split(new string[] { "\\\\\\\\\\" }, StringSplitOptions.None)[1];
             int[] noteDate = new int[5];
             for(int i=0; i<5; i++)
             {
@@ -35,12 +35,9 @@ namespace ProjectApp.rest
         public static Contact convertFromNote(Note note)
         {
             Contact contact = new Contact();
-            contact.Id = 0;
-            contact.EmailAddress = note.Id;
-            contact.Name =
-                note.Date.Year + "." + note.Date.Month + "." + note.Date.Day + "." + note.Date.Hour + "." + note.Date.Minute
-                + "\\\\\\\\\\" + note.Title
-                + "\\\\\\\\\\" + note.Description;
+            contact.Id = note.Id;
+            contact.EmailAddress = note.Date.Year + "." + note.Date.Month + "." + note.Date.Day + "." + note.Date.Hour + "." + note.Date.Minute;
+            contact.Name = note.Title + "\\\\\\\\\\" + note.Description;
             return contact;
         }
 

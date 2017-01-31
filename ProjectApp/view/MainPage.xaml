@@ -19,7 +19,7 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
-                        <TextBlock Text="{Binding Title}" FontWeight="Bold" FontSize="17pt" Margin="0,10,0,5"></TextBlock>
+                        <TextBlock Text="{Binding Title}" FontWeight="Bold" FontSize="17pt" TextWrapping="Wrap" Margin="0,10,0,5"></TextBlock>
                         <TextBlock Text="{Binding Date}" FontSize="14pt" Margin="0,0,0,10"></TextBlock>
                     </StackPanel>
                 </DataTemplate>

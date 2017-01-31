@@ -12,12 +12,11 @@ namespace ProjectApp.rest
     {
         private static Uri uri = new Uri("http://windowsuniversalapp.azurewebsites.net/contacts/");
 
-        public static async Task<Note> GetNote(string noteId)
+        public static async Task<Note> GetNote(int noteId)
         {
-            // TODO
             using (HttpClient client = new HttpClient())
             {
-                string json = await client.GetStringAsync(uri + noteId);
+                string json = await client.GetStringAsync(uri.ToString() + noteId);
                 Contact contact = JsonConvert.DeserializeObject<Contact>(json);
                 Note note = RestAPIConverter.convertToNote(contact);
                 return note;
@@ -46,14 +45,23 @@ namespace ProjectApp.rest
             }
         }
 
-        public async void PutNote(Note note)
+        public static async Task PutNote(Note note)
         {
-            // TOOD
+            using (HttpClient client = new HttpClient())
+            {
+                Contact contact = RestAPIConverter.convertFromNote(note);
+                string json = JsonConvert.SerializeObject(contact);
+
+                await client.PutAsync(uri.ToString() + note.Id, new StringContent(json, Encoding.UTF8, "application/json"));
+            }
         }
 
-        public async void DeleteNote(string noteId)
+        public static async Task DeleteNote(int noteId)
         {
-            // TODO
+            using (HttpClient client = new HttpClient())
+            {
+                await client.DeleteAsync(uri.ToString() + noteId);
+            }
         }
     }
 }

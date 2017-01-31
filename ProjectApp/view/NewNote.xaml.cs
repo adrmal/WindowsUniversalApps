@@ -1,6 +1,8 @@
 ﻿using ProjectApp.model;
 using ProjectApp.rest;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
@@ -35,7 +37,14 @@ namespace ProjectApp
 
                 try
                 {
-                    await RestAPI.PostNote(new Note(Title.Text, Description.Text, date));
+                    List<Note> notes = await RestAPI.GetAllNotes();
+                    int maxId = -1;
+                    if(notes.Count != 0)
+                    {
+                        maxId = notes.Max(note => note.Id);
+                    }
+
+                    await RestAPI.PostNote(new Note(maxId+1, Title.Text, Description.Text, date));
                     Frame.Navigate(typeof(MainPage));
                 }
                 catch(HttpRequestException)

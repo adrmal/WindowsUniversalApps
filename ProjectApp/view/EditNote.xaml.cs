@@ -6,6 +6,7 @@ using Windows.UI.Xaml.Navigation;
 using System;
 using Windows.UI.Popups;
 using System.Net.Http;
+using ProjectApp.rest;
 
 namespace ProjectApp.view
 {
@@ -50,7 +51,7 @@ namespace ProjectApp.view
 
                 try
                 {
-                    //await RestAPI.PutNote(new Note(Title.Text, Description.Text, date));
+                    await RestAPI.PutNote(new Note(note.Id, Title.Text, Description.Text, date));
                     Frame.Navigate(typeof(MainPage));
                 }
                 catch(HttpRequestException)

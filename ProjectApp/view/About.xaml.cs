@@ -1,4 +1,5 @@
-﻿using Windows.UI.Xaml;
+﻿using System;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
 namespace ProjectApp
@@ -10,9 +11,10 @@ namespace ProjectApp
             InitializeComponent();
         }
 
-        private void ContactWithMe_Click(object sender, RoutedEventArgs e)
+        private async void ContactWithMe_Click(object sender, RoutedEventArgs e)
         {
-            
+            Uri mailUri = new Uri("mailto:adr_mal@wp.pl");
+            await Windows.System.Launcher.LaunchUriAsync(mailUri);
         }
     }
 }

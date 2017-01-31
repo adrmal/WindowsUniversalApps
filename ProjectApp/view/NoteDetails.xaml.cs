@@ -5,12 +5,16 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 using System;
+using ProjectApp.rest;
+using System.Net.Http;
 
 namespace ProjectApp.view
 {
     public sealed partial class NoteDetails : Page
     {
         private Note note;
+        private const string OK_LABEL = "Ok";
+        private const string CANCEL_LABEL = "Anuluj";
 
         public NoteDetails()
         {
@@ -52,11 +56,28 @@ namespace ProjectApp.view
         private async void Delete_Click(object sender, RoutedEventArgs e)
         {
             MessageDialog dialog = new MessageDialog("Czy na pewno chcesz usunąć tę notatkę?");
-            dialog.Commands.Add(new UICommand("Ok"));
-            dialog.Commands.Add(new UICommand("Anuluj"));
-            var result = await dialog.ShowAsync();
+            dialog.Commands.Add(new UICommand(OK_LABEL, new UICommandInvokedHandler(CommandInvokedHandler)));
+            dialog.Commands.Add(new UICommand(CANCEL_LABEL, new UICommandInvokedHandler(CommandInvokedHandler)));
+            dialog.DefaultCommandIndex = 0;
+            dialog.CancelCommandIndex = 1;
 
-            Frame.Navigate(typeof(MainPage), note);
+            await dialog.ShowAsync();
+        }
+
+        private async void CommandInvokedHandler(IUICommand command)
+        {
+            if(command.Label.Equals(OK_LABEL))
+            {
+                try
+                {
+                    await RestAPI.DeleteNote(note.Id);
+                    Frame.Navigate(typeof(MainPage), note);
+                }
+                catch(HttpRequestException)
+                {
+                    await new MessageDialog("Brak połączenia z Internetem.").ShowAsync();
+                }
+            }
         }
     }
 }
