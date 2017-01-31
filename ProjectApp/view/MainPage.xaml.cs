@@ -3,8 +3,11 @@ using ProjectApp.rest;
 using ProjectApp.view;
 using ProjectApp.viewmodel;
 using System.Collections.Generic;
+using System.Net.Http;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using System;
 
 namespace ProjectApp
 {
@@ -20,8 +23,15 @@ namespace ProjectApp
 
         private async void LoadNotes()
         {
-            List<Note> notes = await RestAPI.GetAllNotes();
-            (DataContext as NoteListViewModel).NoteList = notes;
+            try
+            {
+                List<Note> notes = await RestAPI.GetAllNotes();
+                (DataContext as NoteListViewModel).NoteList = notes;
+            }
+            catch(HttpRequestException)
+            {
+                await new MessageDialog("Brak połączenia z Internetem.").ShowAsync();
+            }
         } 
 
         private void About_Click(object sender, RoutedEventArgs e)

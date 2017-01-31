@@ -10,6 +10,7 @@
     <Page.BottomAppBar>
         <CommandBar>
             <AppBarButton Icon="Edit" Label="Edytuj notatkę" Click="Edit_Click" Name="EditIcon" />
+            <AppBarButton Icon="Delete" Label="Usuń notatkę" Click="Delete_Click" Name="DeleteIcon" />
         </CommandBar>
     </Page.BottomAppBar>
 
@@ -36,7 +37,7 @@
                     <TextBlock Grid.Column="0" Grid.Row="2" FontWeight="Bold">Dzień zakończenia</TextBlock>
                     <TextBlock Grid.Column="1" Grid.Row="2" Margin="0,0,0,20" TextWrapping="Wrap" Text="{Binding Date}"></TextBlock>
                     <TextBlock Grid.Column="0" Grid.Row="3" FontWeight="Bold">Godzina zakończenia</TextBlock>
-                    <TextBlock Grid.Column="1" Grid.Row="3" TextWrapping="Wrap" Text="{Binding Date}"></TextBlock>
+                    <TextBlock Grid.Column="1" Grid.Row="3" TextWrapping="Wrap" Text="{Binding Time}"></TextBlock>
                 </Grid>
             </StackPanel>
         </Grid>

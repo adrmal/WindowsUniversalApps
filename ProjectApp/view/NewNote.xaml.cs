@@ -1,7 +1,7 @@
 ﻿using ProjectApp.model;
 using ProjectApp.rest;
 using System;
-using System.Net;
+using System.Net.Http;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -38,9 +38,9 @@ namespace ProjectApp
                     await RestAPI.PostNote(new Note(Title.Text, Description.Text, date));
                     Frame.Navigate(typeof(MainPage));
                 }
-                catch(WebException)
+                catch(HttpRequestException)
                 {
-                    await new MessageDialog("Brak połączenia z Internetem").ShowAsync();
+                    await new MessageDialog("Brak połączenia z Internetem.").ShowAsync();
                 }
             }
         }
